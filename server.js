@@ -8,6 +8,7 @@ const server = new SMTPServer({
         simpleParser(stream, {}, (err, parsed) => {
             if (parsed.attachments.length > 0) {
                 var attachment = parsed.attachments[0];
+                console.log(parsed);
                 fs.writeFileSync(attachment.filename, attachment.content);
 // put here commands
                 sendmail({
